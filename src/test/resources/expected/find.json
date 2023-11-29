@@ -1,0 +1,11 @@
+[
+  {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "firstName": "Иван",
+    "lastName": "Иванов",
+    "middleName": "Иванович",
+    "positionHeld": "Менеджер",
+    "email": "ivanov-ii@test.ru",
+    "phoneNumber": "88000000001"
+  }
+]

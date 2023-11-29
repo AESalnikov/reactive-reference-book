@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-exception: true
+    include-binding-errors: always
+
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://${POSTGRESQL_HOST}:${POSTGRESQL_PORT}/${POSTGRESQL_NAME}
+    username: ${POSTGRESQL_USERNAME}
+    password: ${POSTGRESQL_PASSWORD}
+  liquibase:
+    enabled: true
+    url: jdbc:postgresql://${POSTGRESQL_HOST}:${POSTGRESQL_PORT}/${POSTGRESQL_NAME}
+    user: ${POSTGRESQL_USERNAME}
+    password: ${POSTGRESQL_PASSWORD}

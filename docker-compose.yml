@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+
+  reactive-reference-book-db:
+    image: postgres:15
+    container_name: reactive-reference-book-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=reactive_reference_book
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - '1234:5432'
+
+  reactive-reference-book:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reactive-reference-book-app
+    environment:
+      - POSTGRESQL_HOST=reactive-reference-book-db
+      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_NAME=reactive_reference_book
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgres
+    ports:
+      - "8090:8080"
+    links:
+      - reactive-reference-book-db
